@@ -1,0 +1,27 @@
+THE QUESTION IS:-
+Develop a Python program to perform signed binary arithmetic using the 8-bit 2’s complement representation. Use the program to verify the results of the following arithmetic expressions:
+a) (25 + (+18))
+b) ((-25) + (-18))
+For each expression, 
+display the operands in 8-bit 2’s complement binary format, perform the binary arithmetic operation, and display the final result in both binary and decimal formats.
+Verify the program output against the results obtained through manual binary calculations and identify any arithmetic overflow.	L3	CO3	7.5 
+
+===================================================================================================================================================================================================================
+THE CODE FOR THE ABOVE QUESTION IS:-
+def binary_add(a, b):
+    result = (a + b) & 0xFF
+    overflow = ((a ^ b) & 0x80) == 0 and ((a ^ result) & 0x80) != 0
+    signed_result = result if result < 128 else result - 256
+
+    print("First operand :", to_binary(a))
+    print("Second operand:", to_binary(b))
+    print("Result binary :", format(result, '08b'))
+    print("Result decimal:", signed_result)
+    print("Overflow      :", "Yes" if overflow else "No")
+    print()
+
+print("a) 25 + (+18)")
+binary_add(25, 18)
+
+print("b) (-25) + (-18)")
+binary_add(-25, -18)
