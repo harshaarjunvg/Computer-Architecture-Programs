@@ -1,0 +1,30 @@
+THE QUESTION IS:-
+Write a Python program to perform and verify the results of the following shift operations on 8-bit binary numbers:
+a) Logical left shift of 10110110 by 2 positions.
+b) Logical right shift of 11010100 by 2 positions.
+For each operation, 
+display the original 8-bit binary number, demonstrate the shifting process step by step, and display the final 8-bit binary result. 
+Verify the program output against the results obtained through manual calculations. Ensure that the output remains in 8-bit format.
+
+===================================================================================================================================================================
+THE CODE IS:-
+
+def left_shift(binary, n):
+    print("Original binary:", binary)
+    for i in range(n):
+        binary = binary[1:] + '0'
+        print("After shift", i + 1, ":", binary)
+    print("Final result:", binary)
+
+def right_shift(binary, n):
+    print("Original binary:", binary)
+    for i in range(n):
+        binary = '0' + binary[:-1]
+        print("After shift", i + 1, ":", binary)
+    print("Final result:", binary)
+
+print("a) Logical Left Shift")
+left_shift("10110110", 2)
+
+print("\nb) Logical Right Shift")
+right_shift("11010100", 2)
